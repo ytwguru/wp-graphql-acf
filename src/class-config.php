@@ -584,6 +584,9 @@ class Config {
 					},
 				];
 				break;
+            case "edgate_standards":
+            case "edgate_grades":
+            case "edgate_subjects":
 			case 'checkbox':
 				$field_config = [
 					'type'    => [ 'list_of' => 'String' ],
