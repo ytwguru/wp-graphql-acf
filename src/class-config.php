@@ -1418,7 +1418,7 @@ class Config {
             $this->register_graphql_field( 'User', $field_name, $config );
         }
     }
-    
+
 	/**
 	 * Adds options pages and options page field groups to the schema.
 	 */
