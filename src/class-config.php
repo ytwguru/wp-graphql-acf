@@ -1472,28 +1472,8 @@ class Config {
      */
     protected function add_acf_fields_to_users() {
 
-        /**
-         * Get the field groups associated with the User edit form
-         */
-        $user_edit_field_groups = acf_get_field_groups( [
-            'user_form' => 'edit',
-        ] );
-
-        /**
-         * Get the field groups associated with the User register form
-         */
-        $user_register_field_groups = acf_get_field_groups( [
-            'user_form' => 'register',
-        ] );
-
-        /**
-         * Get a unique list of groups that match the register and edit user location rules
-         */
-        $field_groups = array_merge( $user_edit_field_groups, $user_register_field_groups );
-        $field_groups = array_intersect_key( $field_groups, array_unique( array_map( 'serialize', $field_groups ) ) );
-
-
-        foreach ( $field_groups as $field_group ) {
+        
+        foreach ( acf_get_field_groups() as $field_group ) {
 
             $field_name          = isset( $field_group['graphql_field_name'] ) ? $field_group['graphql_field_name'] : Config::camel_case( $field_group['title'] );
             $field_group['type'] = 'group';
